@@ -8,7 +8,8 @@
 
 Commands
 -------------
-  LastBlocks
+
+  Last Blocks
   ----------
   
   * Usage:
