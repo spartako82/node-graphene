@@ -5,9 +5,21 @@
 # Install required libs:
   npm install
 
-# Usage:
-  * Get last nBlocks info
-  node bin/lastBocks.js url nLastBlocks
 
-  * flood the network
-  node bin/flood.js url
+# Commands
+
+  # lastBlocks
+  
+  * Usage:
+  node bin/lastBocks.js url nLastBlocks  
+
+  * Example
+  node bin/lastBlocks.js ws://127.0.0.1:8090 10
+
+  # Flood the network
+  
+  * Usage:
+  node bin/flood.js account url-wallet [nTxBlock]
+
+  * Example:
+  node bin/flood.js spartako ws://127.0.0.1:8099 10

@@ -6,7 +6,7 @@ lib  = require('lib/');
 var die = function() {
   console.log("bin/flood");
   console.log("");
-  console.log("USAGE: bin/flood.js account url [nTx]");
+  console.log("USAGE: bin/flood.js account url-wallet [nTxBlock]");
   process.exit(1);
 }
 
