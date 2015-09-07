@@ -1,6 +1,6 @@
 {
-  "name": "bitshares2",
-  "description": "Communicate with bitshares witness via websocket",
+  "name": "graphene",
+  "description": "Communicate with graphene witness via websocket",
   "version": "0.1.1",
   "main": "lib/index.js",
   "author": "spartako",
