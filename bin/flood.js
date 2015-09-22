@@ -40,6 +40,7 @@ var main = function(){
         //console.log(accounts);
         var iAccount = 0;
         async.each(accounts,function(account,_cb){
+	  var iAccountCurr = iAccount;
           setTimeout(function(){
             //console.log(account);
             //client.create_account_with_brain_key("this is "+myAccount,account,myAccount,myAccount,true,function(err,r){
@@ -48,7 +49,7 @@ var main = function(){
 	          console.log("ERROR",err);
 	      }
 	      else{
-		  console.log("TRANSFER",iAccount);
+		  console.log("TRANSFER",iAccountCurr);
 	          //console.log("CREATED",account);
               }
               //console.log(err,r);
