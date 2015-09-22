@@ -25,7 +25,7 @@ Flood the network
 
 * Usage:
 ```
-node bin/flood.js account url-wallet [nTxBlock]
+node bin/flood.js accountFrom accountTo url-wallet [nTxBlock]
 ```
 
 * Example:
