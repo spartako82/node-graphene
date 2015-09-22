@@ -30,5 +30,5 @@ node bin/flood.js account url-wallet [nTxBlock]
 
 * Example:
 ```
-node bin/flood.js spartako ws://127.0.0.1:8099 10
+node bin/flood.js spartako spartako1 ws://127.0.0.1:8099 10
 ```
