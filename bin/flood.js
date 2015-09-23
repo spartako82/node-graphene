@@ -1,7 +1,7 @@
 var _ = require('underscore'),
 async = require('async'),
 argv = require('yargs').argv
-lib  = require('lib/');
+lib  = require('../lib/');
 
 var die = function() {
   console.log("bin/flood");
