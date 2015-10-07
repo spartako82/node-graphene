@@ -32,3 +32,16 @@ node bin/flood.js accountFrom accountTo url-wallet [nTxBlock]
 ```
 node bin/flood.js spartako spartako1 ws://127.0.0.1:8099 10
 ```
+
+Generic commands
+----------
+
+* Usage:
+```
+node bin/cmd.js url cmd *args
+```
+
+* Example:
+```
+node bin/cmd.js ws://127.0.0.1:8099 info
+```
