@@ -23,11 +23,18 @@ var main = function(){
   var nTx = argv._[3] || 15;
   nTx = parseInt(nTx);
 
+  var end = false;
+  process.on( "SIGINT", function() {
+    console.log('CLOSING [SIGINT]');
+    end = true;
+  } );
+
   var nBlock = 0;
+  var nTX = 0;
   lib.wallet.createWalletClient(url,function(err,client){
     if(err){console.log(err);process.exit()};
     async.whilst(
-      function(){ return true},
+      function(){ return !end},
       function(cb){
         console.log("******* "+nBlock+"******* ");
         nBlock++;
@@ -44,12 +51,15 @@ var main = function(){
           setTimeout(function(){
             //console.log(account);
             //client.create_account_with_brain_key("this is "+myAccount,account,myAccount,myAccount,true,function(err,r){
-	    client.transfer(myAccount1,myAccount2,"0.05","CORE","spam",true,function(err,r){
+	    //client.transfer(myAccount1,myAccount2,"0.05","CORE","spam",true,function(err,r){
+            //client.publish_asset_feed(myAccount1,"USD",JSON.parse(myAccount2),true,function(err,r){
+            client.sell_asset(myAccount1,"1","CORE","0.005","USD",100,false,true,function(err,r){
 	      if(err){
 	          console.log("ERROR",err);
 	      }
 	      else{
-		  console.log("TRANSFER",iAccountCurr);
+		  console.log("TRANSFER",iAccountCurr,JSON.stringify(r));
+                  nTX++;
 	          //console.log("CREATED",account);
               }
               //console.log(err,r);
@@ -62,7 +72,9 @@ var main = function(){
         });
       },
       function(){
-
+        console.log("nTX:",nTX);
+        client.close(function(){
+        });
       });
   });
 

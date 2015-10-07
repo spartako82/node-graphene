@@ -50,7 +50,7 @@ var main = function(){
 	      });
 	    },
 	  ], function (err, result) {
-	    console.log(head_block_number,result.witness,result.name,result.transactions.length);
+	    console.log(head_block_number,result.witness,result.name,result.transactions.length,result.timestamp);
 	    head_block_number--;
 	    cb();
 	  });
