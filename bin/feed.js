@@ -37,13 +37,15 @@ var cmd = function(client,args,cb){
       var feeds = async.map(feeds, function(accs,_cb){
         client.get_account(accs[0],function(err,a){
           if(err){return cb(err)};
+          console.log(accs);
           var date = new Date(accs[1][0]);
           var delta = moment(now).diff(moment(date),"minutes");
           var core_exchange_rate = accs[1][1].core_exchange_rate;
           var value = prec*core_exchange_rate.base.amount/core_exchange_rate.quote.amount;
           var res = _str.sprintf("%.8f",value);
           var resInv = _str.sprintf("%.2f",1/value);
-          _cb(false,{account:a.name, date:date, delta:delta, res:res, resInv:resInv});
+          var mssr = accs[1][1].maximum_short_squeeze_ratio;
+          _cb(false,{account:a.name, date:date, delta:delta, res:res, resInv:resInv, mssr:mssr});
         });
       },function(err, feeds){
         if(err){return cb(err)};
@@ -52,7 +54,7 @@ var cmd = function(client,args,cb){
         });
         var res = ""
         res = _.reduce(feeds,function(s,f){
-          return s+_str.sprintf("%s min: %-4d %s\n",f.resInv,f.delta,f.account);
+          return s+_str.sprintf("%s min: %-4d mssr: %d %s\n",f.resInv,f.delta,f.mssr,f.account);
         },"");
         cb(false,res);
       });
