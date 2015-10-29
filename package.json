@@ -19,7 +19,7 @@
   },
   "keywords": [
     "bitshares",
-    "rpc",
+    "ws",
     "client"
   ],
   "scripts": {

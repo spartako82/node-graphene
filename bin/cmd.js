@@ -24,6 +24,11 @@ var main = function(){
   //args[2] = JSON.parse(args[2]);
   console.log(args);
 
+  var cbLog = function(err,msg){
+    console.log("LOG",err,msg);
+  };
+
+  //lib.wallet.createWalletClient({url:url,cbMessage:cbLog},function(err,client){
   lib.wallet.createWalletClient(url,function(err,client){
     if(err){console.log(err);process.exit()};
     var cb = function(err,r){
@@ -32,7 +37,7 @@ var main = function(){
       }
       else{
 	console.log(r);
-        console.log(JSON.stringify(r));        
+        console.log(JSON.stringify(r));
       }
       client.close();
     };
