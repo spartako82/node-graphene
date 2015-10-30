@@ -30,7 +30,7 @@ var main = function(){
   };
 
   var subscribe = function(r){
-    console.log(r);
+    console.log("NOTICE",r);
   }
   args = [subscribe].concat(args);
 
@@ -42,8 +42,7 @@ var main = function(){
         console.log("ERROR",err);
       }
       else{
-	console.log(r);
-        console.log(JSON.stringify(r));
+        console.log("RES",JSON.stringify(r));
       }
       //client.close();
     };
