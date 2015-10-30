@@ -26,7 +26,7 @@ var main = function(){
   //args[2] = JSON.parse(args[2]);
 
   var cbLog = function(msg){
-    console.log("LOG",msg);
+    console.log("LOG",JSON.stringify(msg));
   };
 
   var subscribe = function(r){
