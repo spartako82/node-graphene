@@ -30,7 +30,7 @@ var main = function(){
   };
 
   var subscribe = function(r){
-    console.log("NOTICE",r);
+    console.log("NOTICE",JSON.stringify(r));
   }
   args = [subscribe].concat(args);
 
