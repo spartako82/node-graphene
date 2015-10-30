@@ -34,8 +34,8 @@ var main = function(){
   }
   args = [subscribe].concat(args);
 
-  //lib.witness.createWitnessClient({url:url,cbMessage:cbLog},function(err,client){
-  lib.witness.createWitnessClient(url,function(err,client){
+  lib.witness.createWitnessClient({url:url,cbMessage:cbLog},function(err,client){
+  //lib.witness.createWitnessClient(url,function(err,client){
     if(err){console.log(err);process.exit()};
     var cb = function(err,r){
       if(err){
