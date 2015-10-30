@@ -24,7 +24,6 @@ var main = function(){
   var args = utils.parseArgs(argv._.slice(1));
 
   //args[2] = JSON.parse(args[2]);
-  console.log(args);
 
   var cbLog = function(err,msg){
     console.log("LOG",err,msg);
@@ -34,7 +33,6 @@ var main = function(){
     console.log(err,r);
   }
   args = [subscribe].concat(args);
-  console.log(args);
 
   //lib.witness.createWitnessClient({url:url,cbMessage:cbLog},function(err,client){
   lib.witness.createWitnessClient(url,function(err,client){
@@ -50,7 +48,6 @@ var main = function(){
       //client.close();
     };
     args.push(cb);
-    console.log("ARGS",args);
     client.subscribe_to_market.apply(this,args);
   });
 
