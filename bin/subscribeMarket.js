@@ -25,12 +25,12 @@ var main = function(){
 
   //args[2] = JSON.parse(args[2]);
 
-  var cbLog = function(err,msg){
-    console.log("LOG",err,msg);
+  var cbLog = function(msg){
+    console.log("LOG",msg);
   };
 
-  var subscribe = function(err,r){
-    console.log(err,r);
+  var subscribe = function(r){
+    console.log(r);
   }
   args = [subscribe].concat(args);
 
