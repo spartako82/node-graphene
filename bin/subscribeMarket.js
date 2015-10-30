@@ -1,0 +1,58 @@
+var _ = require('underscore'),
+utils = require('./utils'),
+async = require('async'),
+argv = require('yargs').argv
+lib  = require('../lib/');
+
+var die = function() {
+  console.log("bin/cmd");
+  console.log("");
+  console.log("USAGE: bin/subscribeMarket.js url *args");
+  process.exit(1);
+}
+
+if(argv._.length < 1){
+  die();
+  return;
+}
+
+var main = function(){
+  var url = argv._[0];
+
+
+
+  var args = utils.parseArgs(argv._.slice(1));
+
+  //args[2] = JSON.parse(args[2]);
+  console.log(args);
+
+  var cbLog = function(err,msg){
+    console.log("LOG",err,msg);
+  };
+
+  var subscribe = function(err,r){
+    console.log(err,r);
+  }
+  args = [subscribe].concat(args);
+  console.log(args);
+
+  //lib.witness.createWitnessClient({url:url,cbMessage:cbLog},function(err,client){
+  lib.witness.createWitnessClient(url,function(err,client){
+    if(err){console.log(err);process.exit()};
+    var cb = function(err,r){
+      if(err){
+        console.log("ERROR",err);
+      }
+      else{
+	console.log(r);
+        console.log(JSON.stringify(r));
+      }
+      //client.close();
+    };
+    args.push(cb);
+    console.log("ARGS",args);
+    client.subscribe_to_market.apply(this,args);
+  });
+
+};
+main();
